@@ -185,8 +185,8 @@ class Client:
 			# if self.playEvent == 0 or self.teardownAcked == 1:
 			# 	break
 			try:
-				data = self.rtpSocket.recv(20480)
-				if (data:
+				data , addr = self.rtpSocket.recvfrom(20480)
+				if data:
 					print("Received RTP packets")
 					rtpPacket = RtpPacket()
 					rtpPacket.decode(data)
